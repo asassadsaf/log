@@ -16,7 +16,6 @@ public class Client {
         Scanner scanner = new Scanner(System.in);
         System.out.println("请输入日志文件路径:(输入0结束程序)");
         while (scanner.hasNext()){
-            System.out.println("请输入日志文件路径:(输入0结束程序)");
             String fileName = scanner.next();
             if("0".equals(fileName)){
                 break;
@@ -51,6 +50,7 @@ public class Client {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            System.out.println("请输入日志文件路径:(输入0结束程序)");
         }
     }
 }
