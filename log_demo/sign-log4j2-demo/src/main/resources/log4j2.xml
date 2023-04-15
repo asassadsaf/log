@@ -31,8 +31,10 @@
                 <!--按照时间节点拆分，规则根据filePattern定义的-->
                 <TimeBasedTriggeringPolicy />
             </Policies>
-            <!--在同一个目录下，文件的个数限定为 30 个，超过进行覆盖-->
+            <!--在同一个目录下，文件的个数限定为 5 个，超过进行覆盖-->
+            <!--使用自定义策略插件-->
             <SignRolloverStrategy max="5">
+                <!--使用自定义Action插件-->
                 <SignAction fileName="${fileName}"/>
             </SignRolloverStrategy>
         </RollingFile>
