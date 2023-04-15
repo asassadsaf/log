@@ -2,19 +2,19 @@
 <configuration status="info" monitorInterval="30">
     <Properties>
         <Property name="pattern">log4j2:[%-5p]:%d{YYYY-MM-dd HH:mm:ss} [%t]%c{1}:%L - %msg%n</Property>
-        <Property name="log_home">E:\Example\Java\log\log4j2/logs</Property>
-        <Property name="fileName">E:\Example\Java\log\log4j2\logs\myLog.log</Property>
+<!--        <Property name="log_home">E:\Example\Java\log\log4j2/logs</Property>-->
+        <Property name="fileName">/opt/logs/fkp.log</Property>
     </Properties>
     <appenders>
         <!--console：控制台输出的配置-->
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="${pattern}"/>
         </Console>
-        <File name="file" fileName="${log_home}/myfile.log">
-            <PatternLayout>
-                <Pattern>log4j2:[%-5p]:%d{YYYY-MM-dd HH:mm:ss} [%t]%c{1}: - %msg%n</Pattern>
-            </PatternLayout>
-        </File>
+<!--        <File name="file" fileName="${log_home}/myfile.log">-->
+<!--            <PatternLayout>-->
+<!--                <Pattern>log4j2:[%-5p]:%d{YYYY-MM-dd HH:mm:ss} [%t]%c{1}: - %msg%n</Pattern>-->
+<!--            </PatternLayout>-->
+<!--        </File>-->
         <!--按照一定规则拆分的日志文件的 appender-->
         <RollingFile name="rollingFile" fileName="${fileName}"
                      filePattern="${fileName}-%d{yyyy-MM-dd-HH-mm}-%i">
@@ -31,9 +31,9 @@
                 <TimeBasedTriggeringPolicy />
             </Policies>
             <!--在同一个目录下，文件的个数限定为 30 个，超过进行覆盖-->
-            <MyRolloverStrategy max="5">
-                <MyAction fileName="${fileName}"/>
-            </MyRolloverStrategy>
+            <SignRolloverStrategy max="5">
+                <SignAction fileName="${fileName}"/>
+            </SignRolloverStrategy>
         </RollingFile>
     </appenders>
     <loggers>
