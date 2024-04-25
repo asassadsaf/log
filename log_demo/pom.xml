@@ -22,6 +22,7 @@
         <module>log4j</module>
         <module>sign-log4j2-demo</module>
         <module>verify-log-tool</module>
+        <module>springboot3-log4j2</module>
     </modules>
 
 </project>
